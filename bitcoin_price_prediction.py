@@ -102,4 +102,4 @@ if st.button("Fetch & Predict"):
 
             st.success("✅ Prediction Completed!")
 
-st.markdown("Made by Keyur :)")
+st.markdown("Made by Aryan Mandlik :)")
