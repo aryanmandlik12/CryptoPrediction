@@ -101,5 +101,5 @@ if st.button("Fetch & Predict"):
             st.pyplot(fig)
 
             st.success("✅ Prediction Completed!")
+st.markdown("Made by AryanMandlik")
 
-st.markdown("Made by Aryan Mandlik :)")
