@@ -11,6 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from sklearn import metrics
+from PIL import Image
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -18,7 +19,8 @@ warnings.filterwarnings('ignore')
 # Streamlit Title
 st.title("📈 Crypto Price Prediction App")
 st.markdown("Predict the price movement of cryptocurrencies using Machine Learning.")
-st.image("https://i.ibb.co/zVpz7DQG/Bitcoin-Untitled-design.png")
+image = Image.open("Cryptophoto.png")
+st.image(image, use_column_width=True)
 
 # User Input for Cryptocurrency Selection
 crypto_symbol = st.text_input("Enter Cryptocurrency Symbol (e.g., BTC-USD, ETH-USD, DOGE-USD)", "BTC-USD")
