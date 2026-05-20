@@ -374,5 +374,3 @@ streamlit run bitcoin_price_prediction.py
 
 ---
 
-*Last Updated: May 2026*  
-*Version: 1.2.0*
