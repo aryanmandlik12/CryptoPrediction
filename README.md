@@ -1,12 +1,47 @@
-## CryptoPrediction 
-This project presents a web-based application for predicting Bitcoin prices using historical financial data. Built with the Streamlit framework, the application leverages data fetched through Yahoo Finance and presents various analytical visualizations along with a basic predictive model. The purpose of this project is to provide a simple, interactive interface for financial data visualization and introductory-level cryptocurrency forecasting.
+##🎯 Project Overview
+A production-ready Streamlit web application that predicts next-day cryptocurrency price movements using machine learning classification models. The application leverages real-time financial data from Yahoo Finance and employs three ensemble learning techniques to forecast whether a cryptocurrency's closing price will move up or down.
+Key Highlights
 
-## 🚀 Features
-- Real-time Bitcoin price data fetched from Yahoo Finance
-- Interactive data visualization using Seaborn and Matplotlib
-- Trend analysis over time with pandas and NumPy
-- Simple and intuitive UI built using Streamlit
-- Easy command-line execution for quick deployment
+##🚀 Real-time predictions for multiple cryptocurrencies (BTC, ETH, DOGE, etc.)
+📈 3 ML models compared: Logistic Regression, SVM, XGBoost
+📊 Interactive dashboard with EDA visualizations and correlation analysis
+⚡ Feature engineering pipeline with technical indicators
+📉 Performance metrics (ROC-AUC, Train/Validation accuracy)
+
+
+##💡 Problem Statement & Motivation
+Challenge: Cryptocurrency markets are highly volatile and difficult to predict. Traditional time-series analysis doesn't capture complex non-linear patterns in price movements.
+Solution: Apply supervised learning classification to transform the continuous price prediction problem into a binary classification task: predict whether tomorrow's closing price will be higher (UP) or lower (DOWN) than today's closing price.
+Why this approach?
+
+Converts a regression problem into a classification problem (more suitable for market predictions)
+Uses ROC-AUC metric, which handles class imbalance better
+Enables ensemble methods to capture different decision boundaries
+Provides probability scores for investment risk assessment
+
+
+##✨ Features
+###🔧 Core Functionality
+Multi-cryptocurrency support: BTC-USD, ETH-USD, DOGE-USD, and any Yahoo Finance ticker
+Customizable date ranges: Flexible backtesting and analysis periods
+Real-time data fetching: Automatic price data retrieval from Yahoo Finance
+Feature engineering: Automated technical indicator generation
+
+###📊 Data Analysis & Visualization
+Closing price trends: Interactive time-series visualization
+Class distribution analysis: Pie chart showing UP/DOWN class balance
+Feature correlation heatmap: Identify relationships between features
+Model performance comparison: Side-by-side accuracy metrics
+
+###🤖 Machine Learning Models
+Logistic Regression – Linear baseline classifier
+SVM (Polynomial Kernel) – Non-linear decision boundaries
+XGBoost Classifier – Gradient boosting ensemble (best performer)
+
+###📈 Performance Metrics
+ROC-AUC Score (primary metric for imbalanced classification)
+Training & Validation Accuracy
+Model comparison dashboard
 
 ## 🛠️ Requirements
 To run this project, ensure that the following Python libraries are installed in your environment:
