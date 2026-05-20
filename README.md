@@ -4,8 +4,6 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.0%2B-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active-success)](https://github.com/aryanmandlik12/CryptoPrediction)
 
 ---
 
@@ -65,56 +63,24 @@ A **production-ready Streamlit web application** that predicts next-day cryptocu
 ## 🏗️ Architecture & Workflow
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│          USER INPUT (Streamlit Interactive UI)              │
-│  Cryptocurrency Symbol | Start Date | End Date              │
-└────────────────────┬────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────────┐
-│           DATA PIPELINE (Yahoo Finance API)                  │
-│  ✓ Download OHLCV data                                      │
-│  ✓ Handle missing values & outliers                         │
-│  ✓ Reset index & prepare dataframe                          │
-└────────────────────┬────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────────┐
-│           FEATURE ENGINEERING                                │
-│  ✓ Temporal features: year, month, day                      │
-│  ✓ Technical indicators:                                    │
-│    - open-close (intra-day volatility)                      │
-│    - low-high (price range)                                 │
-│    - is_quarter_end (seasonal indicator)                    │
-│  ✓ Target variable: UP (1) vs DOWN (0)                      │
-└────────────────────┬────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────────┐
-│         DATA PREPROCESSING                                   │
-│  ✓ StandardScaler normalization                             │
-│  ✓ Train-test split (80-20)                                 │
-│  ✓ Handle NaN values                                        │
-└────────────────────┬────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────────┐
-│       MODEL TRAINING & EVALUATION                            │
-│  ┌─────────────────┬──────────────┬─────────────────┐       │
-│  │ Logistic Reg.   │ SVM (Poly)   │ XGBoost         │       │
-│  │ (Baseline)      │ (Non-linear) │ (Ensemble)      │       │
-│  └─────────────────┴──────────────┴─────────────────┘       │
-│  Metric: ROC-AUC Score (Training & Validation)              │
-└────────────────────┬────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────────┐
-│      VISUALIZATION & REPORTING (Streamlit UI)                │
-│  ✓ Model Performance Metrics                                │
-│  ✓ Feature Correlation Heatmap                              │
-│  ✓ Class Distribution Chart                                 │
-│  ✓ Trend Analysis                                           │
-└─────────────────────────────────────────────────────────────┘
+User Input (Streamlit UI)
+↓ Cryptocurrency Symbol | Start Date | End Date
+↓
+Data Pipeline (Yahoo Finance API)
+↓ Download OHLCV | Handle Missing Values | Prepare Data
+↓
+Feature Engineering
+↓ Temporal Features | Technical Indicators | Target Variable
+↓
+Data Preprocessing
+↓ StandardScaler | Train-Test Split (80-20) | Handle NaN
+↓
+Model Training & Evaluation
+↓ Logistic Regression | SVM (Poly) | XGBoost
+↓ ROC-AUC Score Comparison
+↓
+Visualization & Reporting (Streamlit UI)
+↓ Performance Metrics | Correlation Heatmap | Distribution
 ```
 
 ---
@@ -282,26 +248,6 @@ X_train, X_valid, Y_train, Y_valid = train_test_split(
    - Production-ready data pipeline
    - Model deployment considerations
 
-### Interview Talking Points
-
-**Q: "How would you improve this model?"**
-- Add more technical indicators: RSI, MACD, Bollinger Bands
-- Ensemble stacking with model averaging
-- Time-series cross-validation (expanding window)
-- LSTM/GRU for capturing sequential dependencies
-- Real-time prediction with model monitoring
-
-**Q: "How do you handle class imbalance?"**
-- Using ROC-AUC metric instead of accuracy
-- SMOTE oversampling or class weight adjustment
-- Threshold tuning based on business requirements
-
-**Q: "What are the limitations?"**
-- Cryptocurrency markets are highly unpredictable
-- Past performance ≠ future results
-- External factors (news, regulations) not captured
-- Model assumes historical patterns repeat
-
 ---
 
 ## 📂 Project Structure
@@ -351,15 +297,6 @@ streamlit run bitcoin_price_prediction.py
 3. Select repository & main file
 4. Deploy in one click
 
-### Docker Deployment
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY . /app
-RUN pip install -r requirements.txt
-EXPOSE 8501
-CMD streamlit run bitcoin_price_prediction.py
-```
 
 ---
 
@@ -398,31 +335,6 @@ CMD streamlit run bitcoin_price_prediction.py
 
 **Use at your own risk.**
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how to get involved:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Ideas for Contributions
-- Add new technical indicators
-- Implement LSTM models
-- Improve visualization design
-- Add unit tests
-- Optimize performance
-- Enhance documentation
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -437,7 +349,6 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 ### Getting Help
 - 💬 Open an [Issue](https://github.com/aryanmandlik12/CryptoPrediction/issues) for bugs or questions
 - 📧 Email for direct inquiries
-- 💡 Check [Discussions](https://github.com/aryanmandlik12/CryptoPrediction/discussions) for ideas
 
 ---
 
